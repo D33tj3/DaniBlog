@@ -6,6 +6,14 @@
   <title>Workaway Diaries</title>
 
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Typewriter + serif combo -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@400;600;700&family=Rubik+Mono+One&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -13,41 +21,95 @@
 
 <header class="hero">
   <div class="cutout">
-    <h1>Blog post 1</h1>
+    <h1 class="cutout-title">
+  <span class="text"></span><span class="dot">.</span>
+</h1>
   </div>
 
-  <p class="subtitle">
-    expectations vs reality of hostel life
-  </p>
-
-  <a class="btn" href="index.html">← back home</a>
 </header>
 
 <main class="container">
 
-  <section class="featured">
+ <section class="featured scroll-box">
 
-    <h2 class="label">ENTRY 01</h2>
+  <h2 class="label">30 jun 2026</h2>
 
-    <p>
-      Op een veel te hete vrijdag zei jenna plots 'is een blog niet iets voor jou?'. 
-    </p>
+  <div class="blog-content">
+   <p>
+Op een veel te hete vrijdag zei Jenna plots dat ik misschien een blog moest beginnen. 
+Ik lachte er eerst om, want ik had het gevoel dat ik niets te vertellen had. 
+Maar toen ik eenmaal begon te typen, merkte ik dat er eigenlijk te veel in mijn hoofd zit om niet ergens neer te zetten.
+</p>
 
-    <p>
-      Je kunt zo veel paragrafen toevoegen als je wil.
-    </p>
+<p>
+De dagen hier in het hostel voelen soms alsof ze allemaal in elkaar overlopen. 
+Ontbijt om acht uur, check-outs, nieuwe reizigers die binnenkomen met grote rugzakken en nog grotere verwachtingen. 
+Iedereen vertelt zijn verhaal in kleine stukjes, meestal in de keuken terwijl iemand pasta kookt die net iets te zacht is geworden.
+</p>
 
-    <p>
-      Geen regels — dit is je digitale journal.
-    </p>
+<p>
+Ik begin te merken dat ik steeds beter word in het lezen van mensen. 
+Niet op een enge manier, maar meer alsof je na een tijdje patronen herkent. 
+Wie blijft lang genoeg om vriendschap te sluiten, wie vertrekt morgen alweer, en wie zegt dat ze “misschien langer blijven” maar dat nooit echt meent.
+</p>
 
-  </section>
+<p>
+Soms zit ik ’s avonds op mijn bed en denk ik aan hoe vreemd het is dat je leven ineens bestaat uit mensen die je een paar dagen geleden nog niet kende. 
+En dat dat normaal is hier. 
+Dat je gewoon een gesprek kunt hebben over iemands hele levensplan terwijl je tegelijkertijd muggen probeert weg te slaan.
+</p>
+
+<p>
+Er is iets rustgevends aan die chaos. 
+Alsof niets vaststaat en alles nog kan veranderen, zelfs als je alleen maar hier bent om de afwas te doen of de receptie te bemannen.
+</p>
+
+<p>
+Ik vraag me af of ik dit later ga missen. 
+De rommelige gesprekken, de vreemde mix van stilte en muziek, en het constante gevoel dat je ergens tussen “op reis zijn” en “een tijdelijk leven hebben” in hangt.
+</p>
+
+<p>
+Voor nu laat ik het gewoon gebeuren. 
+Ik schrijf dit niet omdat het belangrijk is, maar omdat het hier blijkbaar makkelijker is om dingen niet meteen te filteren.
+</p>
+  </div>
+
+</section>
+
+<div class="btn-wrapper">
+  <a class="btn btn-black" href="index.html">← terug</a>
+</div>
 
 </main>
+
 
 <footer>
   © 2026 — Daniëlle Maat
 </footer>
+
+/* ===== TITLE TYPEWRITER ===== */
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.querySelector(".cutout-title .text");
+  const parent = document.querySelector(".cutout-title");
+
+  const text = "blog post 1";
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      el.textContent += text[i];
+      i++;
+      setTimeout(type, 90);
+    } else {
+      parent.classList.add("done");
+    }
+  }
+
+  type();
+});
+</script>
 
 </body>
 </html>

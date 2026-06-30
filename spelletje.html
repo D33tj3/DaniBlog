@@ -29,13 +29,10 @@
 
 
 
-<div class="game-buttons">
-
+<section class="game-actions">
   <a class="btn btn-black" href="index.html">← wat een kutspel</a>
-
   <button class="btn btn-special" onclick="resetGame()">opnieuw</button>
-
-</div>
+</section>
 
 </main>
 
@@ -47,16 +44,28 @@
 const answers = [
   "ik wil een hond",
   "zal ik een busje kopen en er in gaan wonen",
-  "dit is niet echt een gedachte dit is ruis",
-  "ik ben moe maar op een existentiële manier"
+  "wat zegt het over mij dat de ene keer dat ik op reis wilde stoppen om een hitchhiker mee te nemen, het een Nederlander bleek te zijn terwijl er tig andere hitchhikers een lift nodig hadden",
+  "zou ik al een pull-up kunnen?",
+  "wat ben ik toch blij met jou",
+  "is anxiety een self-fullfilling prophecy?",
+  "ik heb echt zin in iets zoets",
+  "misschien moet ik gewoon mijn laatste DUO centjes er doorheen jagen",
+  "wat als ik gewoon in het buitenland ga wonen",
+  "wat heb ik toch eigenlijk een fijn leven",
+  "liefde is zo leuk",
+  "wat als ik alles gewoon saboteer uit angst dat ik toch wel ga falen?",
+  "voor iemand die echt een 'out of sight out of mind' persoon is, is het fijn dat ik zo veel goede vrienden heb die mij op den duur weer appen"
 ];
 
 const wrongResponses = [
   "nope ❌",
+  "🙈",
   "oei, dat dacht ik echt een seconde geleden nog",
-  "dit is pijnlijk fout",
+  "jammeeerrr",
   "ik dacht dat je me beter kende dan dit",
-  "dat denk ik vaak, maar nu niet"
+  "dat denk ik vaak, maar nu niet",
+  "ik dacht dat wij vrienden waren",
+  "wauw, ik kan niet geloven dat je denkt dat ik dat denk"
 ];
 
 const rightResponses = [
@@ -64,7 +73,12 @@ const rightResponses = [
   "hoe wist je dat?? omg",
   "kan je mijn gedachten lezen?!",
   "wow creepy",
-  "ja, maar wanneer denk ik daar niet aan"
+  "ja, maar wanneer denk ik daar niet aan",
+  "wat ken je me toch goed",
+  "dit is waarom we vrienden zijn",
+  "echt goed! wil je een sticker?",
+  "hahah oke, ga mijn hersenen uit ofzo",
+  "je hebt echt een gave"
 ];
 
 // 💀 GAME STATE
