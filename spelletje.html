@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Archivo+Black&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>raad waar ik aan denk</title>
@@ -8,7 +9,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="page-game">
 
 <header class="hero">
   <div class="cutout">
@@ -30,9 +31,9 @@
 
 <div class="game-buttons">
 
-  <a class="btn back-btn" href="index.html">← wat een kutspel</a>
+  <a class="btn btn-black" href="index.html">← wat een kutspel</a>
 
-  <button class="btn again-btn" onclick="resetGame()">opnieuw</button>
+  <button class="btn btn-special" onclick="resetGame()">opnieuw</button>
 
 </div>
 
@@ -46,7 +47,6 @@
 const answers = [
   "ik wil een hond",
   "zal ik een busje kopen en er in gaan wonen",
-  "",
   "dit is niet echt een gedachte dit is ruis",
   "ik ben moe maar op een existentiële manier"
 ];
@@ -67,41 +67,85 @@ const rightResponses = [
   "ja, maar wanneer denk ik daar niet aan"
 ];
 
-/* ===== LOAD CARDS ===== */
+// 💀 GAME STATE
+let allowedToWin = false;
+let winningIndex = -1;
 
-function loadCards() {
-  const shuffled = [...answers].sort(() => Math.random() - 0.5);
-  const cards = document.querySelectorAll(".card-option p");
-
-  cards.forEach((p, i) => {
-    p.textContent = shuffled[i];
-  });
+function shuffle(array) {
+  return [...array].sort(() => Math.random() - 0.5);
 }
 
-/* ===== GAME LOGIC ===== */
+function loadCards() {
+
+  const cards = document.querySelectorAll(".card-option p");
+
+  const shown = shuffle(answers).slice(0, 3);
+
+  cards.forEach((p, i) => {
+    p.textContent = shown[i];
+  });
+
+  // 💀 HIER wordt de realiteit bepaald
+  allowedToWin = Math.random() < 0.2; // 20% genade moment
+  winningIndex = Math.floor(Math.random() * 3);
+
+  document.getElementById("result").textContent = "";
+}
 
 function pick(index) {
-  const thought = document.querySelectorAll(".card-option p")[index].textContent;
 
-  const isRight = Math.random() < 0.15;
+  const cards = document.querySelectorAll(".card-option");
+  const texts = document.querySelectorAll(".card-option p");
+
+  const chosenCard = cards[index];
+
+  // reset visuals
+  cards.forEach(c => c.classList.remove("correct", "wrong"));
 
   let response;
 
-  if (isRight) {
+  if (allowedToWin && index === winningIndex) {
+
+    // 💚 JE WORDT GEGUND TE WINNEN
+    chosenCard.classList.add("correct");
+
     response = rightResponses[Math.floor(Math.random() * rightResponses.length)];
 
     confetti({
       particleCount: 120,
       spread: 70,
+      startVelocity: 40,
       origin: { y: 0.6 }
     });
+
   } else {
+
+    // 💔 JE VERLIEST (altijd behalve zeldzaam moment)
+    chosenCard.classList.add("wrong");
+
     response = wrongResponses[Math.floor(Math.random() * wrongResponses.length)];
   }
 
-  document.getElementById("result").textContent =
-    `${response} → ik dacht aan: "${thought}"`;
+  // lock
+  cards.forEach(c => c.classList.add("disabled"));
+
+  document.getElementById("result").textContent = response;
+
+  document.querySelector(".btn-special").classList.add("ready");
 }
+
+function resetGame() {
+
+  document.querySelector(".btn-special").classList.remove("ready");
+
+  document.querySelectorAll(".card-option").forEach(card => {
+    card.classList.remove("correct", "wrong", "disabled");
+  });
+
+  loadCards();
+}
+
+document.addEventListener("DOMContentLoaded", loadCards);
 
 /* ===== INIT ===== */
 

@@ -63,35 +63,73 @@ h1, h2, h3 {
 }
 
 /* BUTTON */
-.btn,
-.btn:link,
-.btn:visited,
-button.btn {
-  font-family: "Special Elite", monospace !important;
+.btn {
+  font-family: "Special Elite", monospace;
 
   display: inline-block;
-  margin-top: 30px;
   padding: 10px 14px;
 
+  text-decoration: none;
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+    appearance: none;
+  -webkit-appearance: none;
+    cursor: pointer;
+  vertical-align: middle;   /* <-- belangrijk */
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-black{
+ text-align: center;
   background: black;
   color: white;
-  text-decoration: none;
-
   border-radius: 20px;
-  transition: transform 0.2s ease;
+}
+.page-home .btn-black {
+  display: block;
+  width: fit-content;
+  margin: 30px auto 0 auto;
+}
+.page-game .btn-black {
+  display: inline-block;
+  margin: 30px 0 0 0;
+}
 
-  appearance: none;
-  -webkit-appearance: none;
-  border: none;
+.btn-black:hover {
+  transform: scale(1.05);
 }
-.btn-wrapper {
-  text-align: center;
-  margin-top: 30px;
+.btn-special {
+  background: #ff4ecd;
+  color: white;
+
+  border-radius: 0;
+
+  box-shadow: none;            /* standaard ingedrukt */
+  transform: translate(5px, 5px);
+
+  pointer-events: none;        /* niet klikbaar */
+  transition: all .15s ease;
 }
-/* HOVER: button */
-.btn:hover {
-  transform: scale(1.1);
+
+.btn-special.ready {
+  box-shadow: 5px 5px 0 black; /* komt omhoog */
+  transform: translate(0, 0);
+
+  pointer-events: auto;        /* nu pas klikbaar */
 }
+
+.btn-special.ready:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 black;
+}
+
+.btn-special.ready:active {
+  transform: translate(5px, 5px);
+  box-shadow: none;
+}
+
 /* LAYOUT */
 .container {
   max-width: 1000px;
@@ -355,6 +393,19 @@ font-family: inherit;
   font-family: "Special Elite", monospace;
   transition: transform 0.2s ease;
 }
+.card-option.correct {
+  background: #7dff8b;
+  color: black;
+}
+
+.card-option.wrong {
+  background: #ff92e0;
+  color: white;
+}
+
+.card-option.disabled {
+  pointer-events: none;
+}
 
 .card-option:hover {
   transform: scale(1.05) rotate(0deg);
@@ -373,26 +424,9 @@ font-family: inherit;
 .game-buttons {
   display: flex;
   justify-content: center;
+  align-items: center;   /* <-- deze is belangrijk */
   gap: 15px;
   margin-top: 40px;
 }
 
-/* TERUG = jouw normale button */
-.again-btn {
-  background: #ffc532;
-  color: rgb(244, 120, 255);
 
-  border-radius: 0;
-  clip-path: polygon(
-    10px 0,
-    calc(100% - 10px) 0,
-    100% 10px,
-    100% calc(100% - 10px),
-    calc(100% - 10px) 100%,
-    10px 100%,
-    0 calc(100% - 10px),
-    0 10px
-  );
-
-  transform: rotate(-2deg);
-}
