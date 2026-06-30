@@ -20,9 +20,13 @@ h1, h2, h3 {
     padding: 30px 15px 10px;
   }
 
-  .cutout h1 {
+   .cutout h1 {
     font-size: 32px;
-    padding: 8px 12px;
+    padding: 8px 14px;
+
+    white-space: normal;   /* belangrijk: mag wrappen */
+    max-width: 90vw;       /* voorkomt overflow */
+    text-align: center;
   }
 
   .grid {
