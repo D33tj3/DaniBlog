@@ -1,0 +1,395 @@
+body {
+  margin: 0;
+  font-family: "Special Elite", monospace;
+  color: #111;
+  background: linear-gradient(135deg, #ff4ecd, #4cc9f0, #ffd166);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+h1, h2, h3 {
+  font-family: "Archivo Black", sans-serif;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 80px 20px 40px;
+  color: white;
+}
+
+.cutout h1 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 60px;
+  text-transform: lowercase;
+
+  background: white;
+  color: black;
+
+  display: inline-block;
+  padding: 10px 25px;
+
+  transform: rotate(-2deg);
+  box-shadow: 6px 6px 0 black;
+  letter-spacing: 2px;
+
+  white-space: nowrap;
+}
+
+/* de knipperende punt */
+.dot {
+  opacity: 0;              /* start verborgen */
+}
+
+.cutout-title.done .dot {
+  opacity: 1;
+  animation: blink 2s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.subtitle {
+    display: flex;
+    align-items: center;   /* verticaal centreren */
+    justify-content: center;
+    gap: 15px;             /* ruimte tussen UGH! en de zin */
+}
+
+/* BUTTON */
+.btn {
+font-family: inherit;
+  display: inline-block; /* ✔ alleen zo groot als content */
+  
+  margin-top: 30px;
+  padding: 10px 14px;
+
+  background: black;
+  color: white;
+  text-decoration: none;
+
+  border-radius: 20px;
+  transition: transform 0.2s ease;
+
+  appearance: none;
+  -webkit-appearance: none;
+}
+.btn-wrapper {
+  text-align: center;
+  margin-top: 30px;
+}
+/* HOVER: button */
+.btn:hover {
+  transform: scale(1.1);
+}
+/* LAYOUT */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* FEATURED */
+.featured {
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.label {
+font-family: "Special Elite", monospace;
+  font-size: 16px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.card {
+  padding: 15px;
+  border-radius: 12px;
+  color: inherit;
+  box-shadow: 5px 5px 0 rgb(255, 102, 166);
+  transform: rotate(var(--r));
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+    position: relative;
+    overflow: visible;
+}
+/* HOVER: cards */
+.card:hover {
+  transform: rotate(0deg) scale(1.02);
+  z-index: 2;
+}
+
+.card h3 {
+  font-family: "Archivo Black", sans-serif;
+   font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 1;
+  font-weight: 400;
+
+  text-transform: lowercase;
+}
+
+/* playful colors */
+.pink { background: #e59dff; --r: -1deg; }
+.yellow { background: #ffc080; --r: 1deg; }
+.blue { background: #6cffd3; --r: -0.5deg; }
+
+/* TAGS */
+.tags {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.tags span {
+  display: inline-block;
+  background: white;
+  padding: 6px 10px;
+  margin: 5px;
+  border-radius: 999px;
+  font-size: 12px;
+  box-shadow: 3px 3px 0 black;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  color: white;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* OUTER WHITE STICKER (echte outline) */
+.sticker {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+
+  width: 45px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px;
+  text-align: center;
+
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 1.2;
+  color: rgb(255, 255, 255);
+
+  background: #000000;
+  border: 4px solid rgb(223, 119, 255);
+  outline: 2px solid rgb(255, 254, 167);
+  outline-offset: 2px;
+
+  border-radius: 42% 58% 49% 51% /
+                 46% 43% 57% 54%;
+
+  transform: rotate(8deg);
+
+  animation:
+    wobbleBorder 4s ease-in-out infinite,
+    pop 2s ease-in-out infinite;
+
+  z-index: 2;
+}
+
+@keyframes pop {
+  0%, 100% {
+    transform: rotate(8deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(8deg) scale(1.08);
+  }
+}
+@keyframes wobbleBorder {
+
+    0% {
+        border-radius:
+            42% 58% 49% 51% /
+            46% 43% 57% 54%;
+    }
+
+    25% {
+        border-radius:
+            48% 52% 44% 56% /
+            55% 45% 50% 50%;
+    }
+
+    50% {
+        border-radius:
+            39% 61% 55% 45% /
+            47% 58% 42% 53%;
+    }
+
+    75% {
+        border-radius:
+            46% 54% 50% 50% /
+            42% 56% 48% 54%;
+    }
+
+    100% {
+        border-radius:
+            42% 58% 49% 51% /
+            46% 43% 57% 54%;
+    }
+}
+
+.comic-text {
+  position: relative;
+  display: inline-block;
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: 35px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transform: rotate(-6deg);
+  cursor: pointer;              /* belangrijk */
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+/* BACKGROUND BLOCK */
+.comic-text .bg {
+  position: absolute;
+  inset: -2px -7px;
+  background: #fff23f;
+  transform: skew(-8deg);
+  z-index: 0;
+  box-shadow: 4px 4px 0px #ff77ad;
+}
+/* GRADIENT TEXT */
+.comic-text .text {
+  position: relative;
+  z-index: 2;
+
+  background: linear-gradient(to bottom, #6fffae, #18d1ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* OUTLINE LAYER */
+.comic-text .outline {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  -webkit-text-stroke: .6px rgb(3, 0, 176);
+  z-index: 3;
+}
+.comic-text:hover {
+  transform: rotate(-2deg) scale(0.95);
+}
+
+/* SPELLETJE CSS */
+.game {
+font-family: inherit;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.question {
+  margin-top: 30px;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+#result {
+  min-height: 60px;   /* reserveert ruimte */
+  margin-bottom: 20px;
+  font-family: "Special Elite", monospace;
+  font-size: 16px;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 40px;
+  opacity: 0.7;
+  text-decoration: none;
+}
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.card-option {
+  width: 220px;
+  background: #fffdf5;
+  padding: 20px;
+  box-shadow: 6px 6px 0 black;
+  transform: rotate(var(--r));
+  cursor: pointer;
+  position: relative;
+  font-family: "Special Elite", monospace;
+  transition: transform 0.2s ease;
+}
+
+.card-option:hover {
+  transform: scale(1.05) rotate(0deg);
+    background: #ff92e0;   /* jouw pink vibe */
+  color: white;
+}
+
+.card-option:nth-child(1) { --r: -2deg; }
+.card-option:nth-child(2) { --r: 2deg; }
+.card-option:nth-child(3) { --r: -1deg; }
+
+.label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.game-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+/* TERUG = jouw normale button */
+.again-btn {
+  background: #ffc532;
+  color: black;
+
+  border-radius: 0;
+  clip-path: polygon(
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px),
+    0 10px
+  );
+
+  transform: rotate(-2deg);
+}

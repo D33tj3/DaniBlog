@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniëlle — Blog</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Typewriter + serif combo -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Oswald:wght@400;600;700&family=Rubik+Mono+One&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="cutout">
+<h1 class="cutout-title">
+  <span class="text"></span><span class="dot">.</span>
+</h1>  </div>
+
+<div class="subtitle">
+<div class="comic-text"
+     data-words="UGH!,WHY?,OMG,HELP,JEETJE,PFFF">
+  <span class="bg"></span>
+  <span class="outline">UGH!</span>
+  <span class="text">UGH!</span>
+</div>
+
+    <span class="subtitle-text">
+        nog een blog van iemand die denkt dat haar gedachten een podium verdienen.
+    </span>
+</div>
+
+
+</header>
+
+<main class="container">
+<!--
+  <section class="featured">
+    <h2 class="label">FEATURED NOTE</h2>
+    <h3>how i rebuild my creative practice while moving around</h3>
+    <p>
+      I’m trying to stay consistent while everything around me changes.
+      this is what that actually looks like.
+    </p>
+  </section>
+-->
+
+  <section class="grid-section">
+    <h2 class="label">leesvoer</h2>
+
+    <div class="grid">
+
+<a href="post-test.html" class="card pink latest">
+
+    <div class="sticker">
+        N I E U W
+    </div>
+
+    <h3>vibecoden 101</h3>
+    <p>hoe ik deze site heb gemaakt en meer...</p>
+
+</a>
+
+      <div class="card yellow">
+        <h3>verliefd zijn</h3>
+        <p>alles waar ik van droomde en meer...</p>
+      </div>
+
+      <div class="card blue">
+        <h3>welkom!</h3>
+        <p>een welkomswoordje en wellicht nog wat meer...</p>
+      </div>
+
+    </div>
+    
+    <div class="btn-wrapper">
+  <a class="btn" href="spelletje.html">→ ik speel liever een spelletje</a>
+</div>
+  </section>
+  
+</main>
+
+
+
+<footer>
+  © 2026 - lees ten alle tijden met een korreltje zout
+</footer>
+<script>
+document.querySelectorAll(".comic-text").forEach(el => {
+  const words = el.dataset.words.split(",");
+
+  el.addEventListener("click", () => {
+    const word = words[Math.floor(Math.random() * words.length)];
+
+    el.querySelector(".text").textContent = word;
+    el.querySelector(".outline").textContent = word;
+  });
+});
+</script>
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.querySelector(".cutout-title .text");
+  const parent = document.querySelector(".cutout-title");
+
+  const fullText = "blog een nog";
+  let i = 0;
+
+  function type() {
+    if (i < fullText.length) {
+      el.textContent += fullText[i];
+      i++;
+      setTimeout(type, 120);
+    } else {
+      parent.classList.add("done"); // 👈 start knipperpunt
+    }
+  }
+
+  type();
+});
+</script>
+</html>

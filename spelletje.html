@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>raad waar ik aan denk</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="cutout">
+    <h1 class="cutout-title">
+      <span class="text"></span><span class="dot">.</span>
+    </h1>
+  </div>
+</header>
+
+<main class="game">
+  <div id="result"></div>
+<div class="cards">
+
+  <div class="card-option" onclick="pick('A')">
+    <p>ik ben gewoon moe van alles</p>
+  </div>
+
+  <div class="card-option" onclick="pick('B')">
+    <p>ik ga morgen alles fixen (niet waar)</p>
+  </div>
+
+  <div class="card-option" onclick="pick('C')">
+    <p>dit is geen gedachte dit is chaos</p>
+  </div>
+
+</div>
+
+
+
+<div class="game-buttons">
+
+  <a class="btn back-btn" href="index.html">← terug</a>
+
+  <button class="btn again-btn" onclick="resetGame()">opnieuw</button>
+
+</div>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script>
+/* ====== JOUW DATA ====== */
+
+const answers = [
+  "ik denk dat ik alles morgen ga fixen maar niet",
+  "wat als ik gewoon stop met nadenken",
+  "ik heb honger maar emotioneel",
+  "dit is niet echt een gedachte dit is ruis",
+  "ik ben moe maar op een existentiële manier"
+];
+
+const wrongResponses = [
+  "nee absoluut niet ❌",
+  "haha nee je zit ernaast",
+  "dit is pijnlijk fout",
+  "je brein liegt tegen je",
+  "incorrect maar wel interessant"
+];
+
+const rightResponses = [
+  "ok wow… ja dat is hem",
+  "hoe wist je dat?? omg",
+  "dit is verdacht accuraat",
+  "dit is eng correct",
+  "je hebt mijn brein gehackt"
+];
+
+/* ====== GAME LOGIC ====== */
+
+function pick(choice) {
+
+  const thought = answers[Math.floor(Math.random() * answers.length)];
+
+  const isRight = Math.random() < 0.15; // 15% kans op “goed”
+
+  let response;
+
+  if (isRight) {
+    response = rightResponses[Math.floor(Math.random() * rightResponses.length)];
+
+    // 🎉 confetti
+    confetti({
+      particleCount: 120,
+      spread: 70,
+      origin: { y: 0.6 }
+    });
+
+  } else {
+    response = wrongResponses[Math.floor(Math.random() * wrongResponses.length)];
+  }
+
+  document.getElementById("result").textContent =
+    `${response} → ik dacht aan: "${thought}"`;
+}
+</script>
+
+<script>
+/* ===== TITLE TYPEWRITER ===== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const el = document.querySelector(".cutout-title .text");
+  const parent = document.querySelector(".cutout-title");
+
+  const text = "raad waar ik aan denk";
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      el.textContent += text[i];
+      i++;
+      setTimeout(type, 90);
+    } else {
+      parent.classList.add("done");
+    }
+  }
+
+  type();
+});
+</script>
+
+</body>
+</html>
