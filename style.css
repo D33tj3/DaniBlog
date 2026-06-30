@@ -15,6 +15,31 @@ body {
 h1, h2, h3 {
   font-family: "Archivo Black", sans-serif;
 }
+@media (max-width: 600px) {
+  .hero {
+    padding: 30px 15px 10px;
+  }
+
+  .cutout h1 {
+    font-size: 32px;
+    padding: 8px 12px;
+  }
+
+  .grid {
+    gap: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .game-buttons,
+  .btn-wrapper {
+    margin-top: 20px;
+  }
+}
 
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
