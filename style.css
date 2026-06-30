@@ -63,10 +63,13 @@ h1, h2, h3 {
 }
 
 /* BUTTON */
-.btn {
-font-family: inherit;
-  display: inline-block; /* ✔ alleen zo groot als content */
-  
+.btn,
+.btn:link,
+.btn:visited,
+button.btn {
+  font-family: "Special Elite", monospace !important;
+
+  display: inline-block;
   margin-top: 30px;
   padding: 10px 14px;
 
@@ -79,6 +82,7 @@ font-family: inherit;
 
   appearance: none;
   -webkit-appearance: none;
+  border: none;
 }
 .btn-wrapper {
   text-align: center;
@@ -306,8 +310,7 @@ footer {
 .game {
 font-family: inherit;
   text-align: center;
-  padding: 40px 20px;
-}
+ padding: 20px 20px 40px;}
 
 .question {
   margin-top: 30px;
@@ -338,7 +341,7 @@ font-family: inherit;
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 15px;
 }
 
 .card-option {
@@ -377,7 +380,7 @@ font-family: inherit;
 /* TERUG = jouw normale button */
 .again-btn {
   background: #ffc532;
-  color: black;
+  color: rgb(244, 120, 255);
 
   border-radius: 0;
   clip-path: polygon(

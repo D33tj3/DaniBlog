@@ -21,26 +21,16 @@
 <main class="game">
   <div id="result"></div>
 <div class="cards">
-
-  <div class="card-option" onclick="pick('A')">
-    <p>ik ben gewoon moe van alles</p>
-  </div>
-
-  <div class="card-option" onclick="pick('B')">
-    <p>ik ga morgen alles fixen (niet waar)</p>
-  </div>
-
-  <div class="card-option" onclick="pick('C')">
-    <p>dit is geen gedachte dit is chaos</p>
-  </div>
-
+  <div class="card-option" onclick="pick(0)"><p></p></div>
+  <div class="card-option" onclick="pick(1)"><p></p></div>
+  <div class="card-option" onclick="pick(2)"><p></p></div>
 </div>
 
 
 
 <div class="game-buttons">
 
-  <a class="btn back-btn" href="index.html">← terug</a>
+  <a class="btn back-btn" href="index.html">← wat een kutspel</a>
 
   <button class="btn again-btn" onclick="resetGame()">opnieuw</button>
 
@@ -51,52 +41,60 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
-/* ====== JOUW DATA ====== */
+/* ===== DATA ===== */
 
 const answers = [
-  "ik denk dat ik alles morgen ga fixen maar niet",
-  "wat als ik gewoon stop met nadenken",
-  "ik heb honger maar emotioneel",
+  "ik wil een hond",
+  "zal ik een busje kopen en er in gaan wonen",
+  "",
   "dit is niet echt een gedachte dit is ruis",
   "ik ben moe maar op een existentiële manier"
 ];
 
 const wrongResponses = [
-  "nee absoluut niet ❌",
-  "haha nee je zit ernaast",
+  "nope ❌",
+  "oei, dat dacht ik echt een seconde geleden nog",
   "dit is pijnlijk fout",
-  "je brein liegt tegen je",
-  "incorrect maar wel interessant"
+  "ik dacht dat je me beter kende dan dit",
+  "dat denk ik vaak, maar nu niet"
 ];
 
 const rightResponses = [
-  "ok wow… ja dat is hem",
+  "jaaa klopt!",
   "hoe wist je dat?? omg",
-  "dit is verdacht accuraat",
-  "dit is eng correct",
-  "je hebt mijn brein gehackt"
+  "kan je mijn gedachten lezen?!",
+  "wow creepy",
+  "ja, maar wanneer denk ik daar niet aan"
 ];
 
-/* ====== GAME LOGIC ====== */
+/* ===== LOAD CARDS ===== */
 
-function pick(choice) {
+function loadCards() {
+  const shuffled = [...answers].sort(() => Math.random() - 0.5);
+  const cards = document.querySelectorAll(".card-option p");
 
-  const thought = answers[Math.floor(Math.random() * answers.length)];
+  cards.forEach((p, i) => {
+    p.textContent = shuffled[i];
+  });
+}
 
-  const isRight = Math.random() < 0.15; // 15% kans op “goed”
+/* ===== GAME LOGIC ===== */
+
+function pick(index) {
+  const thought = document.querySelectorAll(".card-option p")[index].textContent;
+
+  const isRight = Math.random() < 0.15;
 
   let response;
 
   if (isRight) {
     response = rightResponses[Math.floor(Math.random() * rightResponses.length)];
 
-    // 🎉 confetti
     confetti({
       particleCount: 120,
       spread: 70,
       origin: { y: 0.6 }
     });
-
   } else {
     response = wrongResponses[Math.floor(Math.random() * wrongResponses.length)];
   }
@@ -104,7 +102,15 @@ function pick(choice) {
   document.getElementById("result").textContent =
     `${response} → ik dacht aan: "${thought}"`;
 }
+
+/* ===== INIT ===== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  loadCards();
+});
 </script>
+
+
 
 <script>
 /* ===== TITLE TYPEWRITER ===== */
