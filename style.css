@@ -509,6 +509,7 @@ font-family: inherit;
 
   /* belangrijk: zorgt dat scrollbar dichter op content voelt */
   padding-right: 14px;
+    line-height: 1.5;
 }
 
 /* ===== scrollbar (Chrome / Edge / Safari) ===== */
