@@ -1,3 +1,7 @@
+html,
+body {
+    overflow-x: hidden;
+}
 :root {
   --space-xs: 6px;
   --space-sm: 12px;
@@ -20,14 +24,22 @@ h1, h2, h3 {
     padding: 30px 15px 10px;
   }
 
-   .cutout h1 {
-    font-size: 32px;
+@media (max-width: 600px) {
+  .cutout h1 {
+    font-size: clamp(28px, 8vw, 40px);
     padding: 8px 14px;
 
-    white-space: normal;   /* belangrijk: mag wrappen */
-    max-width: 90vw;       /* voorkomt overflow */
+    white-space: normal;
+    overflow-wrap: break-word;
+
+    width: fit-content;
+    max-width: calc(100vw - 40px);
+
+    margin: 0 auto;
     text-align: center;
+    box-sizing: border-box;
   }
+}
 
   .grid {
     gap: 15px;
@@ -216,7 +228,7 @@ font-family: "Special Elite", monospace;
   text-decoration: none;
   display: block;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
 }
 /* HOVER: cards */
 .card:hover {
@@ -265,6 +277,14 @@ footer {
 }
 
 /* OUTER WHITE STICKER (echte outline) */
+@media (max-width:600px){
+
+  .sticker{
+      right:-8px;
+      top:-8px;
+  }
+
+}
 .sticker {
   position: absolute;
   top: -18px;
