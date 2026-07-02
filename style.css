@@ -1,4 +1,5 @@
 html {
+  height: 100%;
   overflow-x: clip;
 }
 :root {
@@ -9,6 +10,7 @@ html {
 }
 body {
   max-width: 100vw;
+  overflow: hidden;
   margin: 0;
   font-family: "Special Elite", monospace;
   color: #111;
@@ -204,6 +206,8 @@ h1, h2, h3 {
 
 .label {
 font-family: "Special Elite", monospace;
+text-align: center;
+margin-bottom: 10px;
   font-size: 16px;
   letter-spacing: 2px;
   opacity: 0.6;
@@ -211,10 +215,12 @@ font-family: "Special Elite", monospace;
 
 /* GRID */
 .grid {
+  margin-top: 20px;
+  margin-bottom: 60px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
- margin-bottom: var(--space-lg);
+  grid-template-columns: repeat(auto-fill, 240px);
+  justify-content: center;
+  gap: 100px;
 }
 @media (max-width:600px) {
   .card {
@@ -223,18 +229,31 @@ font-family: "Special Elite", monospace;
   }
 }
 .card {
+  width: 300px;            /* vaste breedte */
+  height: auto;            /* hoogte groeit met content */
+
   padding: 15px;
   border-radius: 12px;
+
   color: inherit;
+  text-decoration: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  position: relative;
+  box-sizing: border-box;
+
   box-shadow: 5px 5px 0 rgb(255, 102, 166);
+
   transform: rotate(var(--r));
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+
   cursor: pointer;
-  text-decoration: none;
-  display: block;
-    position: relative;
-    overflow: visible;
-    z-index: 1;
+
+  overflow: visible;
+  z-index: 1;
 }
 /* HOVER: cards */
 .card:hover {
@@ -563,4 +582,97 @@ font-family: inherit;
   scrollbar-width: thin;
   scrollbar-color: black transparent;
 }
+/* ===== LOGIN ONLY RESET ===== */
+.login-page {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #ff4ecd, #4cc9f0, #ffd166);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
+}
+
+/* center container */
+.login-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* cutout box */
+.login-cutout {
+  position: relative; /* ✅ FIXED */
+
+  width: 280px;
+
+  background: white;
+  padding: 35px 30px 90px; /* extra bottom space voor knop */
+
+  box-shadow: 6px 6px 0 black;
+  transform: rotate(-2deg);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  gap: 18px;
+}
+
+/* label */
+.login-cutout .label {
+  font-family: "Special Elite", monospace;
+  font-size: 16px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
+/* code boxes */
+.code-boxes {
+  display: flex;
+  gap: 12px;
+}
+
+/* input style */
+.code-box {
+  width: 55px;
+  height: 65px;
+
+  border: none;
+  outline: none;
+
+  background: #fff23f;
+  box-shadow: 4px 4px 0 black;
+
+  font-family: "Archivo Black", sans-serif;
+  font-size: 28px;
+  text-align: center;
+
+  transform: rotate(-2deg);
+}
+
+/* focus */
+.code-box:focus {
+  transform: rotate(0deg) scale(1.08);
+  background: #6cffd3;
+}
+
+/* button onderin kaart */
+.login-cutout .btn {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* error */
+#error {
+  margin-top: 10px;
+  font-family: "Special Elite", monospace;
+}

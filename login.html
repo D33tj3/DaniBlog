@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Archivo+Black&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-page">
+
+  <div class="login-screen">
+
+    <div class="login-cutout">
+
+      <div class="label">wat is het wachtwoord?</div>
+
+      <div class="code-boxes">
+        <input maxlength="1" inputmode="numeric" class="code-box">
+        <input maxlength="1" inputmode="numeric" class="code-box">
+        <input maxlength="1" inputmode="numeric" class="code-box">
+        <input maxlength="1" inputmode="numeric" class="code-box">
+      </div>
+
+      <button class="btn btn-black" onclick="checkCode()">enter</button>
+
+      <p id="error"></p>
+
+    </div>
+
+  </div>
+
+<script>
+const inputs = document.querySelectorAll(".code-box");
+
+// auto-advance + auto-submit
+inputs.forEach((input, index) => {
+  input.addEventListener("input", (e) => {
+    const value = e.target.value;
+
+    e.target.value = value.replace(/\D/g, "").slice(0, 1);
+
+    if (value && index < inputs.length - 1) {
+      inputs[index + 1].focus();
+    }
+
+    // 🚀 AUTO CHECK zodra laatste box gevuld is
+    if (index === inputs.length - 1 && value) {
+      tryCode();
+    }
+  });
+
+  // backspace
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Backspace" && !input.value && index > 0) {
+      inputs[index - 1].focus();
+    }
+  });
+});
+
+// Enter key support
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    tryCode();
+  }
+});
+
+function tryCode() {
+  const code = [...inputs].map(i => i.value).join("");
+
+  if (code === "1007") {
+    window.location.href = "post-test.html";
+  } else {
+    document.getElementById("error").textContent = "hint: het heeft te maken met vandaag";
+  }
+}
+</script>
+</body>
+</html>

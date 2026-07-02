@@ -54,25 +54,27 @@
 -->
 
   <section class="grid-section">
-    <h2 class="label">leesvoer</h2>
+    <h2 class="label">leesvoer:</h2>
 
     <div class="grid">
 
-<a href="post-test.html" class="card pink latest">
+<a href="login.html" class="card pink latest">
 
     <div class="sticker">
         N I E U W
     </div>
 
-    <h3>coming soon...</h3>
-    <p>hoe ik deze site heb gemaakt en meer...</p>
+    <h3>1 jaar samen!</h3>
+    <p>het jaar is voorbij gevlogen en toch herinner ik me alles nog alsof het gister was...</p>
 
 </a>
 
-      <a href="creativiteit.html" class="card yellow">
+      <!-- <a href="creativiteit.html" class="card yellow">
         <h3>creativiteit is een raadsel</h3>
-        <p>soms ben ik weken achter elkaar creatief en soms lukt het niet meer...</p>
+        <p>waar komt creativiteit vandaan? 
+        </p>
       </a>
+    -->
 
       <a href="welkom.html" class="card blue">
         <h3>welkom!</h3>
@@ -107,6 +109,10 @@ document.querySelectorAll(".comic-text").forEach(el => {
 </script>
 </body>
 <script>
+  console.log("HOME PAGE LOADED");
+  document.querySelector(".latest")?.addEventListener("click", () => {
+  console.log("CARD CLICKED");
+});
 document.addEventListener("DOMContentLoaded", () => {
   const el = document.querySelector(".cutout-title .text");
   const parent = document.querySelector(".cutout-title");
