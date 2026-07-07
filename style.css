@@ -684,12 +684,16 @@ font-family: inherit;
     margin:0 auto;
 }
 
+
+/* HEADER */
+
 .memory-hero{
     text-align:center;
-    padding:40px 20px 2px;
+    padding:35px 20px 0;
 }
 
-/* kleinere cutout */
+
+/* CUTOUT */
 
 .memory-cutout h1{
     font-size:42px;
@@ -697,37 +701,46 @@ font-family: inherit;
     box-shadow:5px 5px 0 black;
 }
 
-/* datum */
+
+/* DATUM */
 
 .memory-subtitle{
     font-family:"Special Elite", monospace;
     font-size:17px;
     letter-spacing:2px;
     opacity:.65;
-    margin-top:10px;
+    margin-top:25px;
+    margin-bottom:20px;
 }
 
-/* tekst */
+
+/* INTRO */
 
 .memory-intro{
     max-width:800px;
-    margin:10px auto 30px;
+    margin:0 auto 30px;
     text-align:center;
     line-height:1.8;
     font-size:15px;
 }
 
-/* foto's */
+
+/* FOTO'S */
+
 .memory-click-page{
     cursor:pointer;
 }
+
+
 .photo-stack{
     position:relative;
 
     width:min(700px,90vw);
-    height:700px;
 
-    margin:0 auto 100px;
+    /* geen vaste 700px meer */
+    min-height:200px;
+
+    margin:0 auto 40px;
 }
 
 
@@ -760,6 +773,54 @@ font-family: inherit;
 
 }
 
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .memory-hero{
+        padding:25px 15px 0;
+    }
+
+
+    .memory-cutout h1{
+        font-size:clamp(30px,10vw,42px);
+        padding:8px 12px;
+    }
+
+
+    .memory-subtitle{
+        margin-top:25px;
+        margin-bottom:10px;
+        font-size:15px;
+    }
+
+
+    .memory-intro{
+        font-size:14px;
+        line-height:1.6;
+        margin-bottom:20px;
+    }
+
+
+    .photo-stack{
+        width:90vw;
+        min-height:120px;
+        margin-bottom:20px;
+    }
+
+
+    .stack-photo{
+        max-width:90vw;
+    }
+
+
+    footer{
+        padding:25px 15px;
+    }
+
+}
 /* =========================
    MOBILE FIXES
 ========================= */
