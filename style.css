@@ -521,9 +521,9 @@ font-family: inherit;
   pointer-events: none;
 }
 
-.card-option:hover {
+.card-option:hover:not(.correct):not(.wrong) {
   transform: scale(1.05) rotate(0deg);
-    background: #ff92e0;   /* jouw pink vibe */
+  background: #ff92e0;
   color: white;
 }
 
