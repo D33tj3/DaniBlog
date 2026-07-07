@@ -10,7 +10,7 @@ html {
 }
 body {
   max-width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
   margin: 0;
   font-family: "Special Elite", monospace;
   color: #111;
@@ -733,13 +733,10 @@ font-family: inherit;
     cursor:pointer;
 }
 
-
 .photo-stack{
     position:relative;
-
     width:min(700px,90vw);
-    height:700px;
-
+    min-height:200px;
     margin:0 auto 40px;
 }
 
@@ -910,4 +907,17 @@ font-family: inherit;
   footer {
     padding: 30px 15px;
   }
+  
+      .photo-stack{
+        width:90vw;
+        height:auto;
+        min-height:200px;
+        overflow:visible;
+    }
+
+    .stack-photo{
+        width:100%;
+        max-width:90vw;
+        height:auto;
+    }
 }
