@@ -104,13 +104,11 @@ function addImage(src){
 
     photo.style.zIndex = current;
 
- stack.appendChild(photo);
+    stack.appendChild(photo);
 
-photo.onload = () => {
-    stack.style.height = photo.offsetHeight + "px";
-};
+    console.log("added:", src);
 
-console.log("added:", src);
+}
 
 
 
