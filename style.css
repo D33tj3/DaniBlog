@@ -734,13 +734,10 @@ font-family: inherit;
 
 .photo-stack{
     position:relative;
-
     width:min(700px,90vw);
-
-    /* geen vaste 700px meer */
-    min-height:200px;
-
-    margin:0 auto 40px;
+    height:auto;
+    min-height:0;
+    margin:0 auto 60px;
 }
 
 
@@ -816,10 +813,10 @@ font-family: inherit;
     }
 
 
-    footer{
-        padding:25px 15px;
-    }
-
+  .memory-click-page footer {
+    margin-top:40px;
+    padding:30px 15px;
+}
 }
 /* =========================
    MOBILE FIXES
