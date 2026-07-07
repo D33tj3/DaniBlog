@@ -103,8 +103,11 @@ function addImage(src){
 
     stack.appendChild(photo);
 
-    console.log("added:", src);
+    photo.onload = () => {
+        stack.style.height = photo.offsetHeight + "px";
+    };
 
+    console.log("added:", src);
 }
 
 

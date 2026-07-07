@@ -736,10 +736,9 @@ font-family: inherit;
 .photo-stack{
     position:relative;
     width:min(700px,90vw);
-    min-height:200px;
+    min-height:0;
     margin:0 auto 40px;
 }
-
 
 .stack-photo{
     position:absolute;
@@ -798,14 +797,6 @@ font-family: inherit;
         line-height:1.6;
         margin-bottom:20px;
     }
-
-
-    .photo-stack{
-        width:90vw;
-        min-height:120px;
-        margin-bottom:20px;
-    }
-
 
     .stack-photo{
         max-width:90vw;
@@ -907,17 +898,18 @@ font-family: inherit;
   footer {
     padding: 30px 15px;
   }
-  
-      .photo-stack{
+
+
+}
+@media(max-width:600px){
+
+    .photo-stack{
         width:90vw;
-        height:auto;
-        min-height:200px;
-        overflow:visible;
+        margin-bottom:20px;
     }
 
     .stack-photo{
         width:100%;
         max-width:90vw;
-        height:auto;
     }
 }
