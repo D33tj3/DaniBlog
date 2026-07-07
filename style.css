@@ -87,7 +87,7 @@ h1, h2, h3 {
   box-shadow: 6px 6px 0 black;
   letter-spacing: 2px;
 
-  white-space: nowrap;
+  white-space: normal;
 }
 
 /* de knipperende punt */
@@ -218,9 +218,9 @@ margin-bottom: 10px;
   margin-top: 20px;
   margin-bottom: 60px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 240px);
-  justify-content: center;
-  gap: 100px;
+ grid-template-columns: repeat(auto-fit, minmax(240px, 300px));
+    justify-content: center;
+    gap: 40px;
 }
 @media (max-width:600px) {
   .card {
@@ -758,4 +758,101 @@ font-family: inherit;
         opacity:1;
     }
 
+}
+
+/* =========================
+   MOBILE FIXES
+========================= */
+
+@media (max-width: 600px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    padding: 25px 12px 10px;
+  }
+
+
+  /* BLOG EEN NOG CUTOUT */
+  .cutout {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cutout h1 {
+    font-size: clamp(30px, 11vw, 60px);
+    padding: 8px 15px;
+    max-width: calc(100vw - 40px);
+    white-space: normal; /* BELANGRIJK */
+    overflow-wrap: break-word;
+    line-height: 1;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+
+  /* SUBTITLE */
+  .subtitle {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 20px;
+    position: relative;
+  }
+
+
+  .subtitle-text {
+    display: block;
+    max-width: 90vw;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+
+  /* UGH sticker */
+  .comic-text {
+    font-size: clamp(25px, 9vw, 35px);
+    transform: rotate(-6deg);
+  }
+
+
+  /* CARDS */
+  .container {
+    padding: 15px;
+  }
+
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 15px;
+    width: 100%;
+  }
+
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+
+  .grid-section .label {
+    margin-top: 10px;
+  }
+
+
+  /* BUTTON */
+  .btn-black {
+    max-width: calc(100vw - 40px);
+    font-size: 14px;
+  }
+
+
+  footer {
+    padding: 30px 15px;
+  }
 }
