@@ -727,6 +727,8 @@ font-family: inherit;
 
 /* FOTO'S */
 
+/* FOTO'S */
+
 .memory-click-page{
     cursor:pointer;
 }
@@ -736,9 +738,7 @@ font-family: inherit;
     position:relative;
 
     width:min(700px,90vw);
-
-    /* geen vaste 700px meer */
-    min-height:200px;
+    height:700px;
 
     margin:0 auto 40px;
 }
@@ -772,7 +772,6 @@ font-family: inherit;
     }
 
 }
-
 
 
 /* MOBILE */
@@ -815,12 +814,6 @@ font-family: inherit;
         max-width:90vw;
     }
 
-
-    footer{
-        padding:25px 15px;
-    }
-
-}
 /* =========================
    MOBILE FIXES
 ========================= */
