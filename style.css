@@ -676,3 +676,86 @@ font-family: inherit;
   margin-top: 10px;
   font-family: "Special Elite", monospace;
 }
+
+/* ===== MEMORY PAGE ===== */
+
+.memory-page{
+    width:min(900px,90%);
+    margin:0 auto;
+}
+
+.memory-hero{
+    text-align:center;
+    padding:40px 20px 2px;
+}
+
+/* kleinere cutout */
+
+.memory-cutout h1{
+    font-size:42px;
+    padding:8px 10px;
+    box-shadow:5px 5px 0 black;
+}
+
+/* datum */
+
+.memory-subtitle{
+    font-family:"Special Elite", monospace;
+    font-size:17px;
+    letter-spacing:2px;
+    opacity:.65;
+    margin-top:10px;
+}
+
+/* tekst */
+
+.memory-intro{
+    max-width:800px;
+    margin:10px auto 30px;
+    text-align:center;
+    line-height:1.8;
+    font-size:15px;
+}
+
+/* foto's */
+.memory-click-page{
+    cursor:pointer;
+}
+.photo-stack{
+    position:relative;
+
+    width:min(700px,90vw);
+    height:700px;
+
+    margin:0 auto 100px;
+}
+
+
+.stack-photo{
+    position:absolute;
+
+    width:100%;
+    max-width:600px;
+
+    left:50%;
+    top:0;
+
+    transform:translateX(-50%);
+
+    animation:fadeIn 1s ease;
+
+    mix-blend-mode:multiply;
+}
+
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+
+}
