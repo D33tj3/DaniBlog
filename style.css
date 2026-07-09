@@ -717,13 +717,19 @@ font-family: inherit;
 /* INTRO */
 
 .memory-intro{
-    max-width:800px;
+    max-width:1200px;
     margin:0 auto 30px;
     text-align:center;
-    line-height:1.8;
-    font-size:15px;
+    line-height:1.2;
+    font-size:12px;
+}
+.tight-p {
+  margin: 0;
 }
 
+.tight-p + .tight-p {
+  margin-top: 0px; /* ruimte tussen alinea's */
+}
 
 /* FOTO'S */
 
@@ -915,3 +921,13 @@ font-family: inherit;
     }
 }
 
+/* BLINK DOT */
+.blink-dot {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

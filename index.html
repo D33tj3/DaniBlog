@@ -34,7 +34,7 @@
 </div>
 
     <span class="subtitle-text">
-        nog een blog van iemand die denkt dat haar gedachten een podium verdienen.
+        alweer iemand met een blog...
     </span>
 </div>
 
@@ -109,15 +109,10 @@ document.querySelectorAll(".comic-text").forEach(el => {
 </script>
 </body>
 <script>
-  console.log("HOME PAGE LOADED");
-  document.querySelector(".latest")?.addEventListener("click", () => {
-  console.log("CARD CLICKED");
-});
 document.addEventListener("DOMContentLoaded", () => {
   const el = document.querySelector(".cutout-title .text");
-  const parent = document.querySelector(".cutout-title");
 
-  const fullText = "blog een nog";
+  const fullText = "danimaat.nl";
   let i = 0;
 
   function type() {
@@ -126,7 +121,11 @@ document.addEventListener("DOMContentLoaded", () => {
       i++;
       setTimeout(type, 120);
     } else {
-      parent.classList.add("done"); // 👈 start knipperpunt
+      // Vervang alleen de punt tussen danimaat en nl
+      el.innerHTML = el.textContent.replace(
+        ".",
+        '<span class="blink-dot">.</span>'
+      );
     }
   }
 
